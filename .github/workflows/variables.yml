@@ -16,10 +16,10 @@ jobs:
       aString: this is a string
     steps:
       - name: test null
-        if: (env:aNull == null)
+        if: (env.aNull == null)
         run: echo this variable is null
       - name: test boolean
-        if: ${{ fromJSON(env:aBoolean) }}
+        if: ${{ fromJSON(env.aBoolean) }}
         run: echo this job will not run as our variable is false
       - name: contains function
         if: ${{ contains(env.aString, 'this') }}
